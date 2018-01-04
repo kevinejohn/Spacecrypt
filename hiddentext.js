@@ -18,16 +18,16 @@ function bin2str(bin){
 }
 
 function bin2hidden(str) {
-  str = str.replace(/ /g, "\xE2\x81\xA0");
-  str = str.replace(/0/g, "\xE2\x80\x8B");
-  str = str.replace(/1/g, "\xE2\x80\x8C");
+  str = str.replace(/ /g, "\xE2\x81\xA0"); // Unicode Character 'WORD JOINER' (U+2060) 0xE2 0x81 0xA0
+  str = str.replace(/0/g, "\xE2\x80\x8B"); // Unicode Character 'ZERO WIDTH SPACE' (U+200B) 0xE2 0x80 0x8B
+  str = str.replace(/1/g, "\xE2\x80\x8C"); // Unicode Character 'ZERO WIDTH NON-JOINER' (U+200C) 0xE2 0x80 0x8C
   return str;
 }
 
 function hidden2bin(str) {
-  str = str.replace(/\xE2\x81\xA0/g, ' ');
-  str = str.replace(/\xE2\x80\x8B/g, '0');
-  str = str.replace(/\xE2\x80\x8C/g, '1');
+  str = str.replace(/\xE2\x81\xA0/g, ' ');  // Unicode Character 'WORD JOINER' (U+2060) 0xE2 0x81 0xA0
+  str = str.replace(/\xE2\x80\x8B/g, '0');  // Unicode Character 'ZERO WIDTH SPACE' (U+200B) 0xE2 0x80 0x8B
+  str = str.replace(/\xE2\x80\x8C/g, '1');  // Unicode Character 'ZERO WIDTH NON-JOINER' (U+200C) 0xE2 0x80
   return str;
 }
 
