@@ -3,9 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Spacecrypt</title>
-    <script src="hiddentext.js"></script>
+    <script src="spacecrypt.js"></script>
+
+    <script>
+      function encrypt() {
+        var pub = document.getElementById('public').value;
+        var priv = document.getElementById('private').value;
+        document.getElementById('encrypted').value = Spacecrypt.encrypt(pub, priv);
+      }
+
+      function decrypt() {
+        var encrypted = document.getElementById('decrypt').value;
+        var decrypted = Spacecrypt.decrypt(encrypted);
+        document.getElementById('decrypted').innerHTML = decrypted;
+      }
+    </script>
   </head>
   <body>
-
+    <h1>Spacecrypt</h1>
+    <textarea id="public">Hello World</textarea>
+    <textarea id="private">Secret</textarea>
+    <button onclick="encrypt()">Encrypt</button>
+    <div>Encrypted:</div>
+    <textarea id="encrypted"></textarea>
+    <br>
+    <br>
+    <br>
+    <div>Decrypt:</div>
+    <textarea id="decrypt"></textarea>
+    <button onclick="decrypt()">Decrypt</button>
+    <div id="decrypted"></div>
   </body>
 </html>
