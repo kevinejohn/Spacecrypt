@@ -6,7 +6,8 @@ var Spacecrypt = {};
   function str2bin(text) {
     let bin = [];
     text.split('').map(char => {
-      bin.push(new Number(char.charCodeAt(0)).toString(2));
+      !!char && bin.push(Number(char.charCodeAt(0)).toString(2));
+      return;
     });
     return bin.join(' ');
   }
@@ -14,7 +15,8 @@ var Spacecrypt = {};
   function bin2str(bin) {
     let text = [];
     bin.split(' ').map(char => {
-      text.push(String.fromCharCode(parseInt(char, 2)));
+      !!char && text.push(String.fromCharCode(parseInt(char, 2)));
+      return;
     });
     return text.join('');
   }
@@ -48,7 +50,7 @@ var Spacecrypt = {};
 
   function decrypt(text) {
     const decodedBin = hidden2bin(text);
-    // console.log(decodedBin, '\n');
+    // console.log(decodedBin.length);
 
     const decodedStr = bin2str(decodedBin);
     // console.log(decodedStr, '\n');
