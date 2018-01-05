@@ -27,6 +27,7 @@ var Spacecrypt = {};
   }
 
   function hidden2bin(str) {
+    str = str.replace(/[^\u2060\u200B\u200C]/g, ''); // Strip all but hidden characters
     str = str.replace(/\u2060/g, ' '); // Unicode Character 'WORD JOINER' (U+2060) 0xE2 0x81 0xA0
     str = str.replace(/\u200B/g, '0'); // Unicode Character 'ZERO WIDTH SPACE' (U+200B) 0xE2 0x80 0x8B
     str = str.replace(/\u200C/g, '1'); // Unicode Character 'ZERO WIDTH NON-JOINER' (U+200C) 0xE2 0x80
@@ -40,7 +41,7 @@ var Spacecrypt = {};
     const privHidden = bin2hidden(privBin);
     // console.log(privHidden, '\n');
 
-    const encoded = pub.replace(' ', ' ' + privHidden);
+    const encoded = pub.replace(' ', privHidden + ' ');
     // console.log(encoded, '\n');
     return encoded;
   }
