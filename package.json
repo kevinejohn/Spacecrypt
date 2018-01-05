@@ -15,5 +15,5 @@
   "bugs": {
     "url": "https://github.com/kevinejohn/Spacecrypt/issues"
   },
-  "homepage": "./demo/build/index.html"
+  "homepage": "./demo/build/"
 }
