@@ -9,6 +9,7 @@
     "react-native-web": "0.3.0-rc.4",
     "react-scripts": "1.0.17"
   },
+  "homepage": "https://kevinejohn.github.io/Spacecrypt",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
