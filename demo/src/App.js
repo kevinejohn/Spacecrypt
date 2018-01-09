@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from './components/textinput';
-import { View, Text, Clipboard, TouchableOpacity } from 'react-native';
+import { View, Text, Clipboard, TouchableOpacity, Button } from 'react-native';
 import Spacecrypt from './spacecrypt';
 
 class App extends Component {
@@ -39,10 +39,9 @@ class App extends Component {
           <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
             Create Hidden Message
           </Text>
-          <View style={{ height: 20 }} />
-          <Text style={{ fontSize: 16 }}>Public Message</Text>
+          <View style={{ height: 10 }} />
           <TextInput
-            placeholder="Hello World!"
+            placeholder="Type your public message here"
             value={publicMessage}
             onChangeText={text => {
               this.setState({
@@ -51,10 +50,9 @@ class App extends Component {
               });
             }}
           />
-          <View style={{ height: 20 }} />
-          <Text style={{ fontSize: 18 }}>Private Message</Text>
+          <View style={{ height: 10 }} />
           <TextInput
-            placeholder="This is my hidden message"
+            placeholder="Type your hidden message here"
             value={privateMessage}
             onChangeText={text => {
               this.setState({
@@ -63,17 +61,28 @@ class App extends Component {
               });
             }}
           />
-          <View style={{ height: 20 }} />
-          <Text style={{ fontSize: 18 }}>
-            Copy Encoded Message to Clipboard
-          </Text>
+          <View style={{ height: 10 }} />
           <TouchableOpacity onPress={() => Clipboard.setString(encodedMessage)}>
             <TextInput
-              placeholder="Encoded message will display here"
+              placeholder="Your encoded message will display here"
               editable={false}
               value={!!privateMessage ? encodedMessage : ''}
             />
           </TouchableOpacity>
+          <View style={{ height: 12 }}>
+            {!!privateMessage &&
+              <Text style={{ fontSize: 12, color: 'red', marginLeft: 4 }}>
+                Click to copy to clipboard
+              </Text>}
+          </View>
+          <View style={{ height: 10 }} />
+          <Button
+            title="Clear"
+            color="red"
+            disabled={!privateMessage && !publicMessage}
+            onPress={() =>
+              this.setState({ privateMessage: '', publicMessage: '' })}
+          />
 
           <View style={{ height: 20 }} />
           <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
@@ -82,7 +91,7 @@ class App extends Component {
           <View style={{ height: 10 }} />
 
           <TextInput
-            placeholder="Paste Message Here"
+            placeholder="Paste message here"
             value={hiddenMessage}
             onChangeText={text =>
               this.setState({
@@ -90,7 +99,7 @@ class App extends Component {
                 decodedMessage: Spacecrypt.decrypt(text) || '',
               })}
           />
-          <View style={{ height: 20 }} />
+          <View style={{ height: 10 }} />
 
           <TouchableOpacity onPress={() => Clipboard.setString(decodedMessage)}>
             <TextInput
@@ -103,6 +112,15 @@ class App extends Component {
               value={decodedMessage}
             />
           </TouchableOpacity>
+
+          <View style={{ height: 20 }} />
+          <Button
+            title="Clear"
+            color="red"
+            disabled={!hiddenMessage}
+            onPress={() =>
+              this.setState({ hiddenMessage: '', decodedMessage: '' })}
+          />
 
         </View>
       </View>

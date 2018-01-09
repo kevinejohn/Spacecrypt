@@ -3,3 +3,9 @@
 ```
 yarn build
 ```
+
+# Deploy
+
+```
+yarn deploy
+```
