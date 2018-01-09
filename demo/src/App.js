@@ -113,7 +113,13 @@ class App extends Component {
             />
           </TouchableOpacity>
 
-          <View style={{ height: 20 }} />
+          <View style={{ height: 12 }}>
+            {!!decodedMessage &&
+              <Text style={{ fontSize: 12, color: 'red', marginLeft: 4 }}>
+                Click to copy to clipboard
+              </Text>}
+          </View>
+          <View style={{ height: 10 }} />
           <Button
             title="Clear"
             color="red"
