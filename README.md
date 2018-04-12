@@ -12,7 +12,7 @@ npm install spacecrypt --save
 
 ```
 // import Spacecrypt from 'spacecrypt';
-const Spacecrypt = require('spacecrypt').default;
+const Spacecrypt = require('spacecrypt');
 
 const publicMessage = 'Hello';
 const privateMessage = 'World';
