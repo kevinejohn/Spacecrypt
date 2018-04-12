@@ -1,5 +1,5 @@
 const test = require('tape');
-const Spacecrypt = require('../dist/spacecrypt').default;
+const Spacecrypt = require('../spacecrypt');
 
 test('Test spacecrypt', (t) => {
   t.plan(1);
