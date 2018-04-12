@@ -1,6 +1,6 @@
 {
   "name": "spacecrypt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript implementation of Spacecrypt",
   "main": "spacecrypt.js",
   "scripts": {
