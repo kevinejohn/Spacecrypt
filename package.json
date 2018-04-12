@@ -1,12 +1,10 @@
 {
   "name": "spacecrypt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Javascript implementation of Spacecrypt",
-  "main": "dist/spacecrypt.js",
+  "main": "spacecrypt.js",
   "scripts": {
-    "build": "babel spacecrypt.js --presets babel-preset-es2015 --out-dir dist",
-    "prepublish": "npm run build",
-    "test": "npm run build && tape ./tests/*.js",
+    "test": "tape ./tests/*.js",
     "prettier": "prettier --write --single-quote --trailing-comma es5 *.js"
   },
   "keywords": [
@@ -20,15 +18,13 @@
     "url": "git+https://github.com/kevinejohn/Spacecrypt.git"
   },
   "author": "Kevin Johnson (kevinejohn@gmail.com)",
-  "license": "0BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kevinejohn/Spacecrypt/issues"
   },
   "homepage": "https://kevinejohn.github.io/Spacecrypt",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "prettier": "^1.11.1",
-    "tape": "^4.9.0"
+    "prettier": "1.11.1",
+    "tape": "4.9.0"
   }
 }
